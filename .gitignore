@@ -5,6 +5,7 @@
 /mern_be/node_modules
 /.pnp
 .pnp.js
+/mern_be/.env
 
 # testing
 /coverage
