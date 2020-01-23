@@ -1,6 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv/config')
+const cors = require('cors')
+const bodyparser = require('body-parser')
+//Routes
+const userRoutes = require('./routes/userData')
+const loginRoutes = require('./routes/loginData')
 
 
 //express application
@@ -13,13 +18,18 @@ mongoose.connect(process.env.CON_STRING,
         useNewUrlParser: true,
         useUnifiedTopology: true
     },
-    () => { console.log("connected to DB") })
+    (err) => { console.log(err) })
+
 
 
 //InBuilt middlewares
-app.use(express.json())
+app.use(bodyparser.json()) // convert data to json
+app.use(cors()) // for enabling cors
 
 //custom middlewares
+app.use('/api/user/', userRoutes) // for sign-Up of register
+
+app.use('/api/login/', loginRoutes)
 
 
 
