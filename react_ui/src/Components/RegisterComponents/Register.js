@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 
 export default class Register extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             firstname: "",
             lastname: "",
@@ -17,11 +17,12 @@ export default class Register extends Component {
         }
     }
 
-    routeChange=()=> {
-        let path = `/home`;
-        let history = useHistory();
-        history.push(path);
-      }
+    componentDidMount(){        
+        if(localStorage.getItem("token")){
+            //window.location.replace("/")
+            this.props.history.push("/")
+        }
+    }    
 
     validateEmail(data) {
         let x = data
@@ -34,7 +35,6 @@ export default class Register extends Component {
     }
 
     addData(events) {
-
 
         this.setState({
             [events.target.name]: events.target.value
@@ -93,7 +93,7 @@ export default class Register extends Component {
                 resp: respData.message
             }) 
             } else {
-               window.location.replace("/")   
+               this.props.history.push("/login")
             }
 
         } catch (error) {

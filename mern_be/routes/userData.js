@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const bcrypt = require('bcryptjs')
 const {dataValidate} = require('../validations')
+const {Auth} = require('../Authentication/Auth')
 
 
 const Users = require('../models/Users')
@@ -37,9 +38,8 @@ router.post("/register", async (req, res) => {
     }
 })
 
-//validate user - login
-router.get("/login", (req, res) => {
-
+router.get("/", Auth, (req, res) => {
+    res.send("get user data")
 })
 
 module.exports = router
