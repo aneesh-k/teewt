@@ -11,7 +11,7 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
         if (localStorage.getItem("token")) {
           return (
             <div>
-              <Nav />
+              <Nav {...props} />
               <Component {...props} />
               <Footer />
             </div>

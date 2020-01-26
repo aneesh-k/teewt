@@ -6,6 +6,7 @@
 /.pnp
 .pnp.js
 /mern_be/.env
+/react_ui/public/Profile
 
 # testing
 /coverage

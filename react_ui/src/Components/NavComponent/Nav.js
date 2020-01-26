@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 export default class Nav extends Component {
+  onLogout(e) {
+    e.preventDefault();
+    localStorage.clear();
+    this.props.history.push("/");
+  }
+
   render() {
     return (
       <div>
@@ -9,13 +14,17 @@ export default class Nav extends Component {
           <div className="container">
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
+                <li className="nav-item">
                   <Link className="nav-link" to="/">
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/profile">
+                  <Link
+                    className="nav-link"
+                    to={process.env.PUBLIC_URL + "/Profile/index.html"}
+                    target="_blank"
+                  >
                     Profile
                   </Link>
                 </li>
@@ -24,12 +33,24 @@ export default class Nav extends Component {
                     Contact
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <button
+                    onClick={this.onLogout.bind(this)}
+                    type="button"
+                    class="btn btn-outline-success"
+                  >
+                    Log Out
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
         </nav>
         <div className="padd">
-        <br />
+          <h1>
+            {" "}
+            <br />
+          </h1>
         </div>
       </div>
     );
