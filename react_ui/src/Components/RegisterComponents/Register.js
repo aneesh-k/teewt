@@ -86,18 +86,15 @@ export default class Register extends Component {
         body: postData
       });
       const respData = await resp.json();
-      console.log("aftter respdata");
-      console.log(respData);
       // this.setState({
       //     resp: respData.message
       // })
-
       if (respData.message) {
         this.setState({
           resp: respData.message
         });
       } else {
-        this.props.history.push("/login");
+        this.props.history.push("/");
       }
     } catch (error) {
       console.log("error");
@@ -142,7 +139,6 @@ export default class Register extends Component {
                       <span className="input-group-text width">Email ID </span>
                     </div>
                     <input
-                      name="email"
                       type="email"
                       className="form-control"
                       name="emailId"
@@ -181,8 +177,8 @@ export default class Register extends Component {
   }
 }
 
-{
-  /* <div className="container-fluid ">
+//{
+/* <div className="container-fluid ">
                 <div className="row justify-content-md-center">
                     <div className="col-md-auto centrevalue border-left border-right">
 
@@ -227,4 +223,4 @@ export default class Register extends Component {
                     </div>
                 </div>
             </div> */
-}
+//}

@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+
 import "./Home.css";
 
-export default class Home extends Component {
-  render() {
-    return (
-      <div className="container">
-        <h1>Home</h1>
-        Home
-      </div>
-    );
-  }
-}
+//import { useSelector } from "react-redux";
+
+const Home = () => {
+  return (
+    <div className="container">
+      <h1>Home</h1>
+    </div>
+  );
+};
+
+export default Home;

@@ -37,7 +37,7 @@ export default class Nav extends Component {
                   <button
                     onClick={this.onLogout.bind(this)}
                     type="button"
-                    class="btn btn-outline-success"
+                    className="btn btn-outline-success"
                   >
                     Log Out
                   </button>

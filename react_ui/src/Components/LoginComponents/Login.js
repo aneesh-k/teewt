@@ -10,7 +10,8 @@ export default class Login extends Component {
       password: "",
       disable: true,
       buttonText: "Enter valid Email Id and password",
-      validLogin: ""
+      validLogin: "",
+      loading: false
     };
   }
 
@@ -58,6 +59,7 @@ export default class Login extends Component {
     });
 
     e.preventDefault();
+    this.setState({ loading: true });
     const postFetch = await fetch("http://localhost:5000/api/login", {
       method: "Post",
       headers: {
@@ -74,75 +76,87 @@ export default class Login extends Component {
       } else {
         const token = data.token;
         localStorage.setItem("token", token);
-        window.location.replace("/");
+
+        window.location.replace("/validating");
       }
     } catch (error) {
       console.log("error: ");
       console.log(error);
     }
+    this.setState({ loading: false });
   }
 
   render() {
-    return (
-      <div className="container-fluid">
-        <div className="row no-gutter">
-          <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-          <div className="col-md-8 col-lg-6">
-            <div className="login d-flex align-items-center py-5">
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-9 col-lg-8 mx-auto">
-                    <h3 className="login-heading mb-4">Welcome back!</h3>
-                    <form>
-                      <div className="form-label-group">
-                        <input
-                          onChange={this.addData.bind(this)}
-                          type="email"
-                          name="emailId"
-                          id="inputEmail"
-                          className="form-control"
-                          placeholder="Email address"
-                          required
-                        />
-                        <label htmlFor="inputEmail">Email address</label>
-                      </div>
+    if (this.state.loading) {
+      return (
+        <div class="spinner-border middle" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      );
+    } else {
+      return (
+        <div className="container-fluid">
+          <div className="row no-gutter">
+            <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+            <div className="col-md-8 col-lg-6">
+              <div className="login d-flex align-items-center py-5">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-md-9 col-lg-8 mx-auto">
+                      <h3 className="login-heading mb-4">Welcome back!</h3>
+                      {this.loader}
+                      <form>
+                        <div className="form-label-group">
+                          <input
+                            onChange={this.addData.bind(this)}
+                            type="email"
+                            name="emailId"
+                            id="inputEmail"
+                            className="form-control"
+                            placeholder="Email address"
+                            required
+                          />
+                          <label htmlFor="inputEmail">Email address</label>
+                        </div>
 
-                      <div className="form-label-group">
-                        <input
-                          name="password"
-                          onChange={this.addData.bind(this)}
-                          type="password"
-                          id="inputPassword"
-                          className="form-control"
-                          placeholder="Password"
-                          required
-                        />
-                        <label htmlFor="inputPassword">Password</label>
-                      </div>
+                        <div className="form-label-group">
+                          <input
+                            name="password"
+                            onChange={this.addData.bind(this)}
+                            type="password"
+                            id="inputPassword"
+                            className="form-control"
+                            placeholder="Password"
+                            required
+                          />
+                          <label htmlFor="inputPassword">Password</label>
+                        </div>
 
-                      <button
-                        onClick={this.onLogin.bind(this)}
-                        className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-                        type="submit"
-                      >
-                        Sign in
-                      </button>
-                      <div className="text-center">{this.state.validLogin}</div>
-                    </form>
-                    Not a Member? <Link to="/register">Register</Link>
+                        <button
+                          onClick={this.onLogin.bind(this)}
+                          className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                          type="submit"
+                        >
+                          Sign in
+                        </button>
+                        <div className="text-center">
+                          {this.state.validLogin}
+                        </div>
+                      </form>
+                      Not a Member? <Link to="/register">Register</Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
-{
-  /* <div className="container-fluid ">
+/* <div className="container-fluid ">
 <div className="row justify-content-md-center">
     <div className="col-md-auto centrevalue border-left border-right">
         <div className="input-group mb-3">
@@ -167,4 +181,3 @@ export default class Login extends Component {
     </div>
 </div>
 </div> */
-}
