@@ -1,0 +1,14 @@
+.adjWidth {
+  width: 50px;
+}
+
+.container-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-group-items {
+  background-color: black;
+  color: aliceblue;
+  border: solid aliceblue;
+}

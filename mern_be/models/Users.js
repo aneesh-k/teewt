@@ -4,22 +4,22 @@ const Users = mongoose.Schema({
   firstname: {
     type: String,
     required: true,
-    min: 6
+    min: 3
   },
   lastname: {
     type: String,
     required: true,
-    min: 6
+    min: 3
   },
   emailId: {
     type: String,
     required: true,
-    min: 6
+    min: 3
   },
   password: {
     type: String,
     required: true,
-    min: 6
+    min: 3
   },
   roles: {
     type: [String],

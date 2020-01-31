@@ -1,21 +1,17 @@
-const express = require('express')
-require('dotenv/config')
+const express = require("express");
+require("dotenv/config");
 
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
-const Auth = (req, res, next) =>{
-    const token = req.headers;
-    console.log("in Auth")
-    console.log(token['auth-token'])
+const Auth = (req, res, next) => {
+  const token = req.headers;
 
-    if(!token['auth-token']) return res.status(401).send("Access Denied")
+  if (!token["auth-token"]) return res.status(401).send("Access Denied");
 
-    const authValid = jwt.verify(token["auth-token"], process.env.SECRET_KEY)
-    console.log(authValid._id) 
+  const authValid = jwt.verify(token["auth-token"], process.env.SECRET_KEY);
+  if (!authValid._id) return res.status(401).send("Access Denied");
 
-    if(!authValid._id) return res.status(401).send("Access Denied")
-    
-    next()
-}
+  next();
+};
 
-module.exports.Auth = Auth
+module.exports.Auth = Auth;
