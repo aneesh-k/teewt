@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
-const { dataValidate } = require("../validations");
-const { Auth } = require("../Authentication/Auth");
+const { dataValidate } = require("../../validations");
+const { Auth } = require("../../Authentication/Auth");
 
-const Users = require("../models/Users");
+const Users = require("../../models/Users");
 
 //add user - register
 router.post("/register", async (req, res) => {
@@ -30,10 +30,8 @@ router.post("/register", async (req, res) => {
   try {
     const data = await newUser.save();
     res.status(200).send(data);
-    console.log(data);
   } catch (error) {
     res.status(400).send(error);
-    console.log(error);
   }
 });
 

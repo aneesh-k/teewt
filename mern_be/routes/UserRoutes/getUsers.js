@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const User = require("../models/Users");
-const { Auth } = require("../Authentication/Auth");
+const User = require("../../models/Users");
+const { Auth } = require("../../Authentication/Auth");
 
 router.get("/search", Auth, async (req, res) => {
   // { firstname: { $regex: ".*" + like + ".*" } },
