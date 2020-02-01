@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext, useEffect } from "react";
 
 import { UserContext } from "../GlobalContext/GlobalData";
@@ -9,7 +10,6 @@ function UpdateContext(props) {
   const [user, setUser] = useContext(UserContext);
 
   const updateState = async user => {
-    console.log("validating");
     const data = await fetch(
       `http://localhost:5000/api/token/${localStorage.getItem("token")}`
     );

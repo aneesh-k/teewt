@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./SideBar.css";
@@ -12,18 +13,18 @@ const SideBar = () => {
           <h1> </h1>
         </div>
         {["admin"].includes(users.roles[0]) ? (
-          <Link to="/home/users">Users</Link>
+          <Link to="/home/users">Users -available</Link>
         ) : (
           <></>
         )}
 
-        <a href="#services">Services</a>
+        <Link to="#services">Services -unavailable</Link>
         {["admin", "manager"].includes(users.roles[0]) ? (
-          <Link to="/home/customers">Customers</Link>
+          <Link to="#customers">Customers -unavailable</Link>
         ) : (
           <></>
         )}
-        <a href="#contact">Chef</a>
+        <Link to="#chef">Chef -unavailable</Link>
       </div>
     </div>
   );

@@ -151,7 +151,7 @@ export default class Register extends Component {
                       <span className="input-group-text width">Password </span>
                     </div>
                     <input
-                      type="text"
+                      type="password"
                       className="form-control"
                       name="password"
                       onChange={this.addData.bind(this)}

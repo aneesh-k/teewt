@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext, useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
 import Footer from "./Components/FooterComponent/Footer";
@@ -45,7 +46,7 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
               <Nav {...props} />
               <SideBar />
               <Component {...props} />
-              {/* <Footer /> */}
+              <Footer />
             </div>
           );
         } else {

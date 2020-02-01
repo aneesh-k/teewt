@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+//Depricated
 import React from "react";
 import { ProtectedRoute } from "../../protectedRoute";
 import SideBar from "./SideBarComponent/SideBar";

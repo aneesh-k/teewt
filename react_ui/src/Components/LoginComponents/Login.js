@@ -1,6 +1,8 @@
+/* eslint-disable */
 import React, { Component } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import PublicCredentials from "./PublicCredentials";
 
 export default class Login extends Component {
   constructor() {
@@ -70,14 +72,13 @@ export default class Login extends Component {
 
     try {
       const data = await postFetch.json();
-      console.log(data);
       if (!data.token) {
         this.setState({ validLogin: data.message });
       } else {
         const token = data.token;
         localStorage.setItem("token", token);
 
-        window.location.replace("/validating");
+        this.props.history.push("/validating");
       }
     } catch (error) {
       console.log("error: ");
@@ -86,11 +87,15 @@ export default class Login extends Component {
     this.setState({ loading: false });
   }
 
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
   render() {
     if (this.state.loading) {
       return (
-        <div class="spinner-border middle" role="status">
-          <span class="sr-only">Loading...</span>
+        <div className="spinner-border middle" role="status">
+          <span className="sr-only">Loading...</span>
         </div>
       );
     } else {
@@ -102,6 +107,9 @@ export default class Login extends Component {
               <div className="login d-flex align-items-center py-5">
                 <div className="container">
                   <div className="row">
+                    <div className="adjust-cred">
+                      <PublicCredentials />
+                    </div>
                     <div className="col-md-9 col-lg-8 mx-auto">
                       <h3 className="login-heading mb-4">Welcome back!</h3>
                       {this.loader}

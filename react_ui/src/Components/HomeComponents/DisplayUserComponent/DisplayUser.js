@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from "react";
 import "./DisplayUser.css";
 
@@ -34,7 +35,9 @@ const DisplayUser = props => {
         >
           <option value={props.users.roles[0]}>{props.users.roles[0]}</option>
           <option value="admin">admin</option>
+          <option value="staff">Manager</option>
           <option value="staff">staff</option>
+          <option value="staff">Chef</option>
         </select>
       </li>
     </ul>
