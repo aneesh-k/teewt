@@ -11,6 +11,9 @@ import Home from "./Components/HomeComponents/Home";
 import Contact from "./Components/ContactComponent/Contact";
 import UpdateContext from "./Components/UpdateContext";
 import SearchUser from "./Components/HomeComponents/UserComponent/SearchUsers";
+import Services from "./Components/HomeComponents/ServicesComponent/Services";
+
+import Chef from "./Components/HomeComponents/ChefComponents/Chef";
 
 import { UserProvider } from "./GlobalContext/GlobalData";
 
@@ -29,6 +32,8 @@ function App() {
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/home/users" component={SearchUser} />
           <ProtectedRoute exact path="/contact" component={Contact} />
+          <ProtectedRoute exact path="/services" component={Services} />
+          <ProtectedRoute exact path="/chef" component={Chef} />
         </Switch>
       </Routers>
     </UserProvider>

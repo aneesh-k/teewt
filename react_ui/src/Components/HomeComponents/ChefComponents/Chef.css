@@ -1,0 +1,29 @@
+.chef {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.dishname,
+.dishtype {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.dishdesc {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.btn-wid {
+  width: 100%;
+}
+
+.disable {
+  cursor: default;
+}
+
+.inp-wid {
+  width: 50%;
+}

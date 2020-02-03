@@ -20,3 +20,10 @@
 .sidenav a:hover {
   color: #f1f1f1;
 }
+
+.sidebarLinks {
+  /* margin-bottom: 20px; */
+  margin-top: 20px;
+
+  /* padding-bottom: 30px; */
+}

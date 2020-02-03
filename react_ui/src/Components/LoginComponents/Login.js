@@ -77,14 +77,15 @@ export default class Login extends Component {
       } else {
         const token = data.token;
         localStorage.setItem("token", token);
-
+        this.setState({ loading: false });
         this.props.history.push("/validating");
+        //window.location.replace("/validating")
       }
     } catch (error) {
       console.log("error: ");
       console.log(error);
+      this.setState({ loading: false });
     }
-    this.setState({ loading: false });
   }
 
   componentWillUnmount() {

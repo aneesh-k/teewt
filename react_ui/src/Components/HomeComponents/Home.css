@@ -3,6 +3,7 @@
   /* font-size: 28px; Increased text to enable scrolling */
   padding: 0px 10px;
   padding-top: 20px;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-height: 450px) {

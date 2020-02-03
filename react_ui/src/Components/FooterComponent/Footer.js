@@ -5,7 +5,7 @@ import "./Footer.css";
 export default class Footer extends Component {
   render() {
     return (
-      <div>
+      <div className="">
         <footer
           id="sticky-footer"
           className="py-4 bg-dark text-white-50 footer"
